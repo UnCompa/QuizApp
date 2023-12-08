@@ -49,7 +49,7 @@ export const Questions = ({
 					<Results questionsFiltered={questionsFiltered} score={score} onReset={onReset}/>
 			):(
 				<main className="grid grid-cols-2 shadow h-[400px] w-[700px] bg-gray-900 p-4 font-bold">
-        <section>
+        <section className="place-content-center">
           <div className="mb-4">
             <h2 className="text-2xl">{filterQuestion.question}</h2>
           </div>
@@ -68,13 +68,6 @@ export const Questions = ({
           >
             Reiniciar
           </button>
-          <div className="py-2">
-            <h3>Pregunta:</h3>
-            <p className="font-normal py-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-              odio quod nobis, corporis tempore, dolorum numquam.
-            </p>
-          </div>
         </section>
         <section>
           {/* Se renderizara las raspuestas */}
@@ -82,7 +75,7 @@ export const Questions = ({
 					{
 						answersRandom.map((answer, index) => (
               <button
-							className={`border p-5 rounded-lg flex justify-center items-center hover:scale-105 disabled:bg-white ${
+							className={`w-full border p-5 rounded-lg flex justify-center items-center hover:scale-105 disabled:text-gray-500 ${
 								selectAnswerIndex !== null &&
 								index === selectAnswerIndex
 									? answer === filterQuestion.correct_answer

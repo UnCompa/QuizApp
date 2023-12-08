@@ -16,8 +16,7 @@ export const CategoryPage = () => {
   const [questionsFiltered, setQuestionsFiltered] = useState(
     questions.filter((question) => question.category === category)
   );
-  const [imgCategory] = imgs.filter(img => img === `/src/assets/${category.toLowerCase()}.png`)
-
+  const [imgCategory] = imgs.filter(img => img === `/QuizApp/src/assets/${category.toLowerCase()}.png`)
   useEffect(() => {
     const newQuestions = shuffleQuestions(questionsFiltered);
     setQuestionsFiltered(newQuestions);

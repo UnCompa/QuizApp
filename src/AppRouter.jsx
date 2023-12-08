@@ -8,8 +8,8 @@ export const AppRouter = () => {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/category/:category" element={<CategoryPage />} />
+        <Route path="/QuizApp/" element={<HomePage />} />
+        <Route path="/QuizApp/category/:category" element={<CategoryPage />} />
       </Routes>
     </>
   );
