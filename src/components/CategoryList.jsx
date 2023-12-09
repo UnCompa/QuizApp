@@ -9,6 +9,8 @@ const [
   imgHistoria,
   imgLiteratura,
   imgTecnologia,
+  imgBasketball,
+  imgAnime
 ] = imgs;
 
 export const CategoryList = () => {
@@ -54,6 +56,18 @@ export const CategoryList = () => {
         category={categories.tecnologia}
         src={imgTecnologia}
         alt={`Categoría ${categories.tecnologia}`}
+        color="from-blue-500 to-cyan-500"
+      />
+      <CategoryCard
+        category={categories.anime}
+        src={imgAnime}
+        alt={`Categoría ${categories.anime}`}
+        color="from-blue-500 to-cyan-500"
+      />
+      <CategoryCard
+        category={categories.basketball}
+        src={imgBasketball}
+        alt={`Categoría ${categories.basketball}`}
         color="from-blue-500 to-cyan-500"
       />
     </div>

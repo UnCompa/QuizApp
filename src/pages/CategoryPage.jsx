@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { questions, imgs } from "../data/data";
+import { questions, imgs} from "../data/data";
 import { useEffect } from "react";
 import { Questions } from "../components/Questions";
+import { StartQuestion } from "../components/StartQuestion";
 
 const shuffleQuestions = (array) => {
-  const newArray = array.sort(() => Math.random() - 0.5);
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
   return newArray.slice(0, 5);
 };
 
@@ -16,11 +21,15 @@ export const CategoryPage = () => {
   const [questionsFiltered, setQuestionsFiltered] = useState(
     questions.filter((question) => question.category === category)
   );
-  const [imgCategory] = imgs.filter(img => img === `/QuizApp/src/assets/${category.toLowerCase()}.png`)
+  // const [imgCategory] = imgs.filter(img => img === `/QuizApp/src/assets/${category.toLowerCase()}.png`)
+  // const imgCategory = imgs.find(img => img.includes(`${category.toLowerCase()}.png`));
+  const imgCategory = imgs.find(img => img.includes(`${category.toLowerCase()}`));
+  
   useEffect(() => {
     const newQuestions = shuffleQuestions(questionsFiltered);
     setQuestionsFiltered(newQuestions);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeQuiz]);
 
   return (
     <div
@@ -34,20 +43,11 @@ export const CategoryPage = () => {
           indexQuestion={indexQuestion}
           questionsFiltered={questionsFiltered}
           setActiveQuiz={setActiveQuiz}
+          category={category}
         />
       ) : (
         <>
-          <div className="h-52 w-[500px] bg-slate-800 grid grid-cols-2 place-items-center rounded shadow-lg">
-            <div>
-              <img className="h-40 object-cover" src={imgCategory} alt="" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold my-4 p-2">{category}</h2>
-              <button className="border py-2 w-full rounded" onClick={()=>setActiveQuiz(true)}>
-                Iniciar Quiz
-              </button>
-            </div>
-          </div>
+          <StartQuestion imgCategory={imgCategory} category={category} setActiveQuiz={setActiveQuiz}/>
         </>
       )}
     </div>

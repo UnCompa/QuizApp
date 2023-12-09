@@ -18,7 +18,7 @@ export const CategoryCard = ({
         <div className="">
             <img className={`object-cover [filter:drop-shadow(0_0_15px_#0003);]`} src={src} alt={alt} />
         </div>
-        <div className="text-xl text-center font-semibold">
+        <div className="my-2 text-xl text-center font-semibold">
             <h3>{category}</h3>
         </div>
     </Link>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 export const Results = ({ score, questionsFiltered, onReset }) => {
 	return (
-		<div className='flex flex-col justify-evenly items-center shadow-xl rounded-lg w-[600px] h-[600px] gap-5'>
+		<div className='bg-ter flex flex-col justify-evenly items-center shadow-xl rounded-lg w-[600px] h-[600px] gap-5'>
 			<h1 className='text-4xl font-bold'>Resultados</h1>
 
 			<div className='flex flex-col gap-5 text-center text-lg font-bold'>
@@ -13,7 +13,7 @@ export const Results = ({ score, questionsFiltered, onReset }) => {
 			</div>
 
 			<button
-				className='border px-5 py-2 rounded-lg transition-all font-bold hover:bg-yellow-500 hover:text-gray-900'
+				className='bg-sec hover:bg-cuac px-5 py-2 rounded-lg transition-all font-bold'
 				onClick={onReset}
 			>
 				Vamos de nuevo
@@ -22,7 +22,7 @@ export const Results = ({ score, questionsFiltered, onReset }) => {
 	);
 };
 Results.propTypes = {
-    score: PropTypes.array,
+    score: PropTypes.number,
     questionsFiltered: PropTypes.array,
     onReset: PropTypes.func
 }
