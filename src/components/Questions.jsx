@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Results } from "./Results";
+import {confetti} from 'canvas-confetti'
 export const Questions = ({
   filterQuestion,
   setIndexQuestion,
@@ -45,6 +46,10 @@ export const Questions = ({
     setIndexQuestion(0);
     setActiveQuiz(false);
   };
+
+  const opcionesConfeti = {
+    particleCount: 300,
+  }
   return (
     <>
       {activeResults ? (
@@ -129,7 +134,7 @@ export const Questions = ({
                 onClick={() => {
                   setAnswered(false);
                   setActiveResults(true);
-                  
+                  confetti(opcionesConfeti)
                 }}
               >
                 Finalizar
